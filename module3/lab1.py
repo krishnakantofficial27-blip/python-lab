@@ -12,7 +12,13 @@ while True:
 
     # Add contact
     if choice == "1":
-        name = input("Enter name: ")
+        while True:
+            name = input("Enter name: ")
+            if name.replace(" ", "").isalpha():
+                break
+            else:
+                print("Invalid name! Please enter alphabets only (no numbers).")
+
         phone = input("Enter phone number: ")
         email = input("Enter email: ")
 
@@ -28,7 +34,6 @@ while True:
 
     # View contacts
     elif choice == "2":
-
         if len(contacts) == 0:
             print("No contacts available.")
         else:
@@ -42,13 +47,11 @@ while True:
 
     # Search contact
     elif choice == "3":
-
         search_name = input("Enter name to search: ")
 
         found = False
 
         for contact in contacts:
-
             if contact["name"].lower() == search_name.lower():
                 print("\nContact Found")
                 print("Name:", contact["name"])
@@ -63,13 +66,11 @@ while True:
 
     # Delete contact
     elif choice == "4":
-
         delete_name = input("Enter name to delete: ")
 
         found = False
 
         for contact in contacts:
-
             if contact["name"].lower() == delete_name.lower():
                 contacts.remove(contact)
 
@@ -88,6 +89,3 @@ while True:
 
     else:
         print("Invalid choice.")
-
-
-

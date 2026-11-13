@@ -1,0 +1,27 @@
+[
+    {
+        "time": "10:00",
+        "level": "INFO",
+        "message": "Server started"
+    },
+    {
+        "time": "10:05",
+        "level": "ERROR",
+        "message": "Database failed"
+    },
+    {
+        "time": "10:10",
+        "level": "WARNING",
+        "message": "High CPU usage"
+    },
+    {
+        "time": "10:15",
+        "level": "ERROR",
+        "message": "Login timeout"
+    },
+    {
+        "time": "10:20",
+        "level": "INFO",
+        "message": "Backup completed"
+    }
+]
