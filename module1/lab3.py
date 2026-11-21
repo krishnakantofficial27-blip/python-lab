@@ -1,12 +1,31 @@
-import math
-number = float(input("Enter a number: "))
-print("\n----- Mathematical Operations -----")
-print(f"Number          : {number}")
-print(f"Square          : {number ** 2}")
-print(f"Cube            : {number ** 3}")
-print(f"Square Root     : {math.sqrt(number)}")
-print(f"Ceiling Value   : {math.ceil(number)}")
-print(f"Floor Value     : {math.floor(number)}")
-print(f"Absolute Value  : {abs(number)}")
-print(f"Type            : {type(number)}")
-print(f"Memory Address  : {id(number)}")
+# Simple Calculator
+
+print("=" * 30)
+print("       CALCULATOR")
+print("=" * 30)
+
+num1 = float(input("Enter first number: "))
+operator = input("Enter operator (+, -, *, /): ")
+num2 = float(input("Enter second number: "))
+
+if operator == "+":
+    result = num1 + num2
+
+elif operator == "-":
+    result = num1 - num2
+
+elif operator == "*":
+    result = num1 * num2
+
+elif operator == "/":
+    if num2 != 0:
+        result = num1 / num2
+    else:
+        result = "Cannot divide by zero"
+
+else:
+    result = "Invalid operator"
+
+print("-" * 30)
+print("Result:", result)
+print("=" * 30)

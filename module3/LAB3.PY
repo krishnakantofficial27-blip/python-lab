@@ -1,29 +1,30 @@
-text = input("Enter a sentence or paragraph: ")
+"""Count word frequencies using a dictionary."""
 
-# Word frequency counter
-words = text.lower().split()
-word_freq = {}
+import re
 
-for word in words:
-    if word in word_freq:
-        word_freq[word] = word_freq[word] + 1
-    else:
-        word_freq[word] = 1
+def count_word_frequencies(text: str) -> dict[str, int]:
+    """Return case-insensitive word counts from text."""
+    frequencies: dict[str, int] = {}
+    words = re.findall(r"[\w']+", text.casefold())
+    for word in words:
+        frequencies[word] = frequencies.get(word, 0) + 1
+    return frequencies
 
-print("\n--- WORD FREQUENCY ---")
-for word in word_freq:
-    print(word, ":", word_freq[word])
+def main() -> None:
+    """Read text and display each word's frequency."""
+    text = input("Enter a sentence or paragraph: ").strip()
+    frequencies = count_word_frequencies(text)
 
-# Character frequency counter
-char_freq = {}
+    if not frequencies:
+        print("No words were found.")
+        return
 
-for ch in text.lower():
-    if ch != " ":
-        if ch in char_freq:
-            char_freq[ch] = char_freq[ch] + 1
-        else:
-            char_freq[ch] = 1
+    print("\n========== WORD FREQUENCIES ==========")
+    print(f"{'Word':<25} Count")
+    print("-" * 33)
+    for word, count in sorted(frequencies.items()):
+        print(f"{word:<25} {count}")
 
-print("\n--- CHARACTER FREQUENCY ---")
-for ch in char_freq:
-    print(ch, ":", char_freq[ch])
+if __name__ == "__main__":
+    main()
+
